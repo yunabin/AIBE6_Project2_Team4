@@ -4,29 +4,30 @@ public class Character {
 
     private final String name;
     private final BodyType bodyType;
-    private Stat stat;
+    private final Stat stat;
     private int turnCount;
-    private boolean injured;
+    private final InjuryStatus injuryStatus;
 
     public Character(String name, BodyType bodyType) {
         this.name = name;
         this.bodyType = bodyType;
         this.stat = bodyType.createInitialStat();
         this.turnCount = 0;
-        this.injured = false;
+        this.injuryStatus = new InjuryStatus();
     }
 
     public void nextTurn() {
         this.turnCount++;
-        this.injured = false;
+        injuryStatus.nextTurn();
     }
 
-    public boolean isInjured()                      { return injured; }
-    public void setInjured(boolean injured)         { this.injured = injured; }
-    public String getName()                         { return name; }
-    public BodyType getBodyType()                   { return bodyType; }
-    public Stat getStat()                           { return stat; }
-    public int getTurnCount()                       { return turnCount; }
+    public boolean isInjured()  { return injuryStatus.isInjured(); }
+    public void setInjured()    { injuryStatus.occur(); }
+
+    public String getName()       { return name; }
+    public BodyType getBodyType() { return bodyType; }
+    public Stat getStat()         { return stat; }
+    public int getTurnCount()     { return turnCount; }
 
     @Override
     public String toString() {
