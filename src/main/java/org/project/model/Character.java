@@ -16,22 +16,17 @@ public class Character {
         this.injured = false;
     }
 
-
     public void nextTurn() {
         this.turnCount++;
-        if (injured) {
-            System.out.println("부상 중이라 이번 턴은 훈련할 수 없습니다...");
-            this.injured = false;
-        }
+        this.injured = false;
     }
 
-    public boolean isInjured()          { return injured; }
-    public void setInjured(boolean injured) { this.injured = injured; }
-
-    public String getName()     { return name; }
-    public BodyType getBodyType() { return bodyType; }
-    public Stat getStat()       { return stat; }
-    public int getTurnCount()   { return turnCount; }
+    public boolean isInjured()                      { return injured; }
+    public void setInjured(boolean injured)         { this.injured = injured; }
+    public String getName()                         { return name; }
+    public BodyType getBodyType()                   { return bodyType; }
+    public Stat getStat()                           { return stat; }
+    public int getTurnCount()                       { return turnCount; }
 
     @Override
     public String toString() {

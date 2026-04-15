@@ -4,7 +4,7 @@ public enum BodyType {
 
     BULK("벌크형", 80, 40, 60),
     BALANCE("밸런스형", 60, 60, 60),
-    LEAN("린형", 50, 70, 50);
+    SLIM("슬림형", 50, 70, 50);
 
     private final String displayName;
     private final int initStrength;
